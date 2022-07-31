@@ -2,7 +2,7 @@
 
 A server-side web framework for the Brainfuck language
 
-Rules
+Rules:<br />
 The last cell in the memory (by default, at index 29,999) is the flag cell
 Flag cell content:
 
