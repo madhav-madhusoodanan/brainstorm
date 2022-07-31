@@ -3,7 +3,7 @@
 A server-side web framework for the Brainfuck language
 
 Rules:<br />
-The last cell in the memory (by default, at index 29,999) is the flag cell
+The last cell in the memory (by default, at index 29,999) is the flag cell<br />
 Flag cell content:
 
 0 -> "." operator writes the active port, while the "," operator reads the active port and stops its execution<br />
