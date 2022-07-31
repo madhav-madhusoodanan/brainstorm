@@ -25,14 +25,6 @@ fn rick_roll_check(code: &String) {
     }
 }
 
-/* pub fn execute(code: &String) {
-    let listener = TcpListener::bind("127.0.0.1:7878").unwrap();
-
-    let mut stream = listener.incoming().into_iter();
-    let Rstream = stream.next().unwrap();
-    let Lstream = stream.next().unwrap();
-
-} */
 
 pub fn evaluate(code: &String) -> Result<Vec<ContentType>, CompileError> {
     let bytes: Vec<ContentType> = code.bytes().collect();
@@ -44,10 +36,6 @@ pub fn evaluate(code: &String) -> Result<Vec<ContentType>, CompileError> {
 
     let mut listener: Option<TcpListener> = None;
     let mut stream: Option<TcpStream> = None;
-
-    
-    // listener = TcpListener::bind("127.0.0.1:7878").unwrap();
-    // stream = Some(listener.incoming().into_iter().next().unwrap());
 
     /* checking for loop points, and verifying if the loop brackets are properly matched */
     {
@@ -180,7 +168,11 @@ pub fn evaluate(code: &String) -> Result<Vec<ContentType>, CompileError> {
                             code_index += 1;
 
                         } else if memory[ULIMIT] == 0 {
-                            listener = TcpListener::bind("127.0.0.1:7878").ok();
+                            let mut sum: usize = 0;
+                            for val in memory {
+                                sum += usize::from(val);
+                            }
+                            listener = TcpListener::bind(format!("127.0.0.1:{}", sum)).ok();
 
                         } else if memory[ULIMIT] == 1 {
                             let mut t_stream = stream.expect("No active connection");
