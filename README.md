@@ -1,6 +1,6 @@
 # Brainstorm (under development)
 
-A server-side web framework for the Brainfuck language
+A virtual machine for server-side Brainfuck language
 
 Rules:<br />
 The last cell in the memory (by default, at index 29,999) is the flag cell<br />
